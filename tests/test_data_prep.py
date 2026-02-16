@@ -1,8 +1,8 @@
 import yaml
 from pyspark.sql import SparkSession
 
-def test_config_load():
-    with open("../configs/dev.yaml", "r") as f:
+def test_config_load(config_path):
+    with open(config_path, "r") as f:
         config = yaml.safe_load(f)
     assert config["schema"] == "telco_dev"
     assert "bronze_table" in config
