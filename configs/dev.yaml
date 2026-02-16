@@ -1,0 +1,6 @@
+env: "dev"
+schema: "telco_dev"
+raw_csv_path: "/Volumes/ml_engineer/schema1/managed_volume/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+bronze_table: "bronze_customer_churn"
+silver_table: "silver_customer_churn"
+fs_table: "fs_customer_churn"
