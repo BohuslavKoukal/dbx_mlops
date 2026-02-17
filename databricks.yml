@@ -1,0 +1,31 @@
+bundle:
+  name: mlops_dab
+
+resources:
+  jobs:
+    telco-churn-dev:
+      name: Telco Churn Dev Workflow
+      tasks:
+        - task_key: ingest
+          notebook_task:
+            notebook_path: notebooks/01_data_ingest_explore.ipynb
+            base_parameters:
+              config_path: configs/dev.yaml
+          # NO job_cluster_key needed for serverless!
+
+      # REMOVE job_clusters entirely for serverless-only workspace
+      # DO NOT define new_cluster/serverless/job_cluster_key
+
+targets:
+  dev:
+    default: true
+  prod:
+    resources:
+      jobs:
+        telco-churn-dev:
+          tasks:
+            - task_key: ingest
+              notebook_task:
+                notebook_path: notebooks/01_data_ingest_explore.ipynb
+                base_parameters:
+                  config_path: configs/prod.yaml

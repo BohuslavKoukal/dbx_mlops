@@ -14,4 +14,3 @@ Holds production-grade tables, features, and model outputs. Only code that has p
 
 Note: All pipeline code and notebooks are designed to be environment-agnostic. The target schema is set dynamically using configuration files (dev.yaml, prod.yaml), making it easy to promote code and artifacts between dev and prod.
 
-
